@@ -1,0 +1,4 @@
+Matematica e Computação;MaC;
+Fisica;Fis;
+Geografia;Geo;
+Quimica e Bioquimica;QBio;
