@@ -25,6 +25,7 @@ public class Principal{
 		
 		PrincipalUI.main(args);
 		
+		
 		int delay = 5000;
 		int interval = 10000;
 		Timer timer = new Timer();

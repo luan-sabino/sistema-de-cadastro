@@ -22,6 +22,7 @@ public class RelatoriosUI extends JPanel {
 	RelatoriosDocentesSubstitutos relatoriosSubU = new RelatoriosDocentesSubstitutos();
 	RelatoriosTecnicos relatoriosTecU = new RelatoriosTecnicos();
 	RelatoriosResumoDepartamentos relatorioDepU = new RelatoriosResumoDepartamentos();
+	RelatoriosPorSalario relatorioPorS = new RelatoriosPorSalario();
 	/**
 	 * Create the panel.
 	 */
@@ -40,6 +41,7 @@ public class RelatoriosUI extends JPanel {
 		tabbedFunc.add("Docentes Efetivos",relatoriosEfeU);
 		tabbedFunc.add("Docentes Substitutos",relatoriosSubU);
 		tabbedFunc.add("Tecnicos",relatoriosTecU);
+		tabbedFunc.add("Por Salario", relatorioPorS);
 		
 		tabbedOp.addTab("Relatorios de Funcionarios", tabbedFunc);
 		tabbedOp.addTab("Relatorios de Departamentos", relatorioDepU);

@@ -13,6 +13,7 @@ import componente.Departamento;
 import persistencia.Constantes;
 import persistencia.DataBase;
 import servidor.Efetivo;
+import servidor.Funcionario;
 import servidor.Substituto;
 import servidor.Tecnico;
 @SuppressWarnings({"resource"})
@@ -191,6 +192,20 @@ public class DataCare extends Constantes {
 			gastoTotal += getDepartamentosByIndex(i).getGasto();
 		}
 		return gastoTotal;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Funcionario> getFuncionarioByFaixaSalarial(double faixaMin, double faixaMax) {
+		ArrayList<Funcionario> holder = new ArrayList<Funcionario>();
+		for(int i = 0; i < getDepartamentosArray().size(); i++) {
+			holder.addAll(getDepartamentosByIndex(i).concatTodosFuncionarios());
+		}
+		ArrayList<Funcionario> holderEscolhidos = new ArrayList<Funcionario>();
+		for(int i  = 0; i < holder.size(); i++) {
+			if(holder.get(i).salario >= faixaMin && holder.get(i).salario <= faixaMax)
+				holderEscolhidos.add(holder.get(i));
+		}
+		return holderEscolhidos;
 	}
 	
 }
