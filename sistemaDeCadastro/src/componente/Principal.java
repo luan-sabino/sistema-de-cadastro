@@ -1,5 +1,6 @@
 package componente;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,12 +17,17 @@ public class Principal{
 
 	@SuppressWarnings({"unused" })
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		dc.lerDados();
+		uni = new Universidade();
+		try {
+			dc.lerDados();
+		} catch(FileNotFoundException e) {
+			uni.dc.preencheDB();
+		};
 		
 				
-		uni = new Universidade();
+		
 		Constantes consta = new Constantes();
-		//uni.dc.preencheDB(); //USE PARA RESETAR, É NECESSARIO RETIRAR O COMENTARIO NA CLASSE DataBase	
+			
 		
 		PrincipalUI.main(args);
 		

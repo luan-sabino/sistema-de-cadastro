@@ -24,9 +24,9 @@ public class DataBase implements Serializable{
 	}
 	
 	public static DataBase getDataBase() {
-		/*if(instance == null) {
-			instance = new DataBase(); //Retirar o comentario para resetar a DB
-		}*/
+		if(instance == null) {
+			instance = new DataBase();
+		}
 		return instance;
 	}
 	
