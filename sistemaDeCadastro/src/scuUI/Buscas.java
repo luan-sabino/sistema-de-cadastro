@@ -111,8 +111,10 @@ public class Buscas extends JPanel {
 				nomeOuCodigo = textFuncNomeOuCodigo.getText();
 				if(dc.getFuncionarioByNameOrCode(nomeOuCodigo) == null) {
 					JOptionPane.showMessageDialog(null, "Não existe nenhum funcionario com esse nome");
+					textFuncNomeOuCodigo.setText("");
 				}else {
 					setFrame(dc.getFuncionarioByNameOrCode(nomeOuCodigo));
+					textFuncNomeOuCodigo.setText("");
 				}
 			}
 		});
@@ -131,14 +133,16 @@ public class Buscas extends JPanel {
 			Tecnico holder = (Tecnico)obj;
 			BuscaTecnico.setData(holder.nome, holder.codigo, holder.nivel, holder.funcao, holder.salario);
 			BuscaTecnico.main(null);
-		}else if(obj.getClass().equals((new Substituto()).getClass())) {
-			Substituto holder = (Substituto)obj;
-			BuscaDocenteSubstituto.setData(holder.nome, holder.codigo, holder.nivel, holder.titulacao, holder.cargaHoraria, holder.salario);
-			new BuscaDocenteSubstituto();
-		}else{
+		}
+		if(obj.getClass().equals((new Efetivo()).getClass())){
 			Efetivo holder = (Efetivo)obj;
 			BuscaDocenteEfetivo.setData(holder.nome, holder.codigo, holder.nivel, holder.titulacao, holder.area, holder.salario);
-			new BuscaDocenteSubstituto();
+			BuscaDocenteEfetivo.main(null);
+		}
+		if(obj.getClass().equals((new Substituto()).getClass())) {
+			Substituto holder = (Substituto)obj;
+			BuscaDocenteSubstituto.setData(holder.nome, holder.codigo, holder.nivel, holder.titulacao, holder.cargaHoraria, holder.salario);
+			BuscaDocenteSubstituto.main(null);;
 		}
 	}
 

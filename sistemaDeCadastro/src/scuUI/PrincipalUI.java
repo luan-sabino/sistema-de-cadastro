@@ -83,6 +83,7 @@ public class PrincipalUI {
 					RelatoriosDocentesEfetivos.setTableData(dc);
 					RelatoriosDocentesSubstitutos.setTableData(dc);
 					RelatoriosTecnicos.setTableData(dc);
+					RelatoriosResumoDepartamentos.setTableData(dc);
 				}
 			}
 		});
