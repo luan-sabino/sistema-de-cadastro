@@ -15,10 +15,10 @@ Sistema de cadastro e gerenciamento de funcionarios de uma universidade fictíci
 
 ## Sobre o uso
 ```
- Caso não exista nenhum arquivo DataBase.dat o app vai instanciar uma nova database somente com os dados 
- dos departamentos, e apos 15 segundos de execução um arquivo DataBase.dat é criado para armazenar as alterações.
  Caso queira reiniciar a database basta rodar o resetDB.bat, e na proxima vez que o app for iniciado uma nova DB 
  vai ser iniciada.
+ Caso não exista nenhum arquivo DataBase.dat o app vai instanciar uma nova database somente com os dados 
+ dos departamentos, e apos 15 segundos de execução um arquivo DataBase.dat é criado para armazenar as alterações.
 ```
 
 
