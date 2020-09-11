@@ -5,12 +5,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controladores.DataCare;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BuscaDocenteSubstituto extends JFrame {
 
@@ -25,6 +32,8 @@ public class BuscaDocenteSubstituto extends JFrame {
 	private static JTextField textTitulacao = new JTextField();
 	private static JTextField textCargaHoraria = new JTextField();
 	private static JTextField textSalario = new JTextField();
+	private final JButton btnDeletarFuncionario = new JButton("Deletar funcionario");
+	private DataCare dc = new DataCare();
 
 	/**
 	 * Launch the application.
@@ -46,10 +55,32 @@ public class BuscaDocenteSubstituto extends JFrame {
 	 * Create the frame.
 	 */
 	public BuscaDocenteSubstituto() {
+		btnDeletarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i = JOptionPane.showConfirmDialog(null, "Deseja continuar?");
+				if(i == JOptionPane.YES_OPTION) {
+					try {
+						dc.deletaFuncionario(textCodigo.getText());
+						JOptionPane.showMessageDialog(null, "O funcionario foi removido com sucesso");
+						textNome.setText("");
+						textCodigo.setText("");
+						textNivel.setText("");
+						textTitulacao.setText("");
+						textSalario.setText("");
+						textCargaHoraria.setText("");
+						
+					} catch (NullPointerException e2) {
+						JOptionPane.showMessageDialog(null, "O funcionario não esta cadastrado");
+					}
+					
+					
+				}
+			}
+		});
 		setResizable(false);
 		setTitle("Docente Substituto");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 367, 212);
+		setBounds(100, 100, 367, 240);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -102,14 +133,15 @@ public class BuscaDocenteSubstituto extends JFrame {
 						.addComponent(lblCodigo, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
 						.addComponent(lblCargaHoraria, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(textSalario, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textCargaHoraria, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textTitulacao, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textNivel, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textCodigo, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textNome, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(btnDeletarFuncionario, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(textSalario, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+						.addComponent(textCargaHoraria, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+						.addComponent(textTitulacao, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+						.addComponent(textNivel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+						.addComponent(textCodigo, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+						.addComponent(textNome, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+					.addContainerGap(39, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -138,6 +170,8 @@ public class BuscaDocenteSubstituto extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textSalario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblSalario))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnDeletarFuncionario)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);

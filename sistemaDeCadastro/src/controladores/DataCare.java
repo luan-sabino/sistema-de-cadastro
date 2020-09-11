@@ -207,5 +207,40 @@ public class DataCare extends Constantes {
 		}
 		return holderEscolhidos;
 	}
+
+	public void deletaFuncionario(String codigo) {
+		getArrayByFuncionario(codigo).remove(getFuncionarioByNameOrCode(codigo));
+	}
+	
+	public ArrayList getArrayByFuncionario(String nomeOuCodigo) {
+		for(int i = 0; i < getDepartamentosArray().size(); i++) {
+			for(int j = 0; j < getDepartamentosByIndex(i).getArrayDeTecnico().size(); j++) {
+				String nome = getDepartamentosByIndex(i).getArrayDeTecnico().get(j).nome;
+				String codigo = getDepartamentosByIndex(i).getArrayDeTecnico().get(j).codigo;
+				if(nomeOuCodigo.equals(nome) || nomeOuCodigo.equals(codigo)) {
+					return getDepartamentosByIndex(i).getArrayDeTecnico();
+				}
+			}
+		}
+		for(int i = 0; i < getDepartamentosArray().size(); i++) {
+			for(int j = 0; j < getDepartamentosByIndex(i).getArrayDeSubstituto().size(); j++) {
+				String nome = getDepartamentosByIndex(i).getArrayDeSubstituto().get(j).nome;
+				String codigo = getDepartamentosByIndex(i).getArrayDeSubstituto().get(j).codigo;
+				if(nomeOuCodigo.equals(nome) || nomeOuCodigo.equals(codigo)) {
+					return getDepartamentosByIndex(i).getArrayDeSubstituto();
+				}
+			}
+		}
+		for(int i = 0; i < getDepartamentosArray().size(); i++) {
+			for(int j = 0; j < getDepartamentosByIndex(i).getArrayDeEfetivo().size(); j++) {
+				String nome = getDepartamentosByIndex(i).getArrayDeEfetivo().get(j).nome;
+				String codigo = getDepartamentosByIndex(i).getArrayDeEfetivo().get(j).codigo;
+				if(nomeOuCodigo.equals(nome) || nomeOuCodigo.equals(codigo)) {
+					return getDepartamentosByIndex(i).getArrayDeEfetivo();
+				}
+			}
+		}
+		return null;
+	}
 	
 }
