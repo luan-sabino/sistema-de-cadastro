@@ -59,7 +59,7 @@ public class RelatoriosDocentesEfetivos extends JPanel {
 					dc.db.getTodosEfetivos().get(i).area,
 					dc.db.getTodosEfetivos().get(i).salario });
 		}
-		else {}
+		else {modelo.setRowCount(0);}
 		
 	}
 	

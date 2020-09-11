@@ -57,7 +57,7 @@ public class RelatoriosFuncionarios extends JPanel {
 					dc.db.getTodosFuncionarios().get(i).nivel  ,
 					dc.db.getTodosFuncionarios().get(i).salario });
 		}
-		else {}
+		else {modelo.setRowCount(0);}
 		
 	}
 	

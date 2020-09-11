@@ -212,6 +212,7 @@ public class DataCare extends Constantes {
 		getArrayByFuncionario(codigo).remove(getFuncionarioByNameOrCode(codigo));
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public ArrayList getArrayByFuncionario(String nomeOuCodigo) {
 		for(int i = 0; i < getDepartamentosArray().size(); i++) {
 			for(int j = 0; j < getDepartamentosByIndex(i).getArrayDeTecnico().size(); j++) {

@@ -59,7 +59,7 @@ public class RelatoriosTecnicos extends JPanel {
 					dc.db.getTodosTecnicos().get(i).funcao,
 					dc.db.getTodosTecnicos().get(i).salario });
 		}
-		else {}
+		else {modelo.setRowCount(0);}
 		
 	}
 	

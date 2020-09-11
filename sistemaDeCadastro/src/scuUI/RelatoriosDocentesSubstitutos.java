@@ -59,7 +59,7 @@ public class RelatoriosDocentesSubstitutos extends JPanel {
 					dc.db.getTodosSubstitutos().get(i).cargaHoraria,
 					dc.db.getTodosSubstitutos().get(i).salario });
 		}
-		else {}
+		else {modelo.setRowCount(0);}
 		
 	}
 	

@@ -60,7 +60,7 @@ public class RelatoriosDocentes extends JPanel {
 					dc.db.getTodosDocentes().get(i).titulacao,
 					dc.db.getTodosDocentes().get(i).salario });
 		}
-		else {}
+		else {modelo.setRowCount(0);}
 		
 	}
 	
