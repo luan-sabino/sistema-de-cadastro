@@ -9,7 +9,7 @@ Sistema de cadastro e gerenciamento de funcionarios de uma universidade fictíci
 
 ## Instalação (ou quase isso)
 ```
- Faça o download da pasta run (ou do projeto inteiro).
+ Faça o download da pasta "sistemaDeCadastro/run" (ou do projeto inteiro).
  Execute o run.bat
 ```  
 
